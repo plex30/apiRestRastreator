@@ -1,5 +1,8 @@
 {
     "require": {
-        "slim/slim": "4.*"
+        "slim/slim": "4.*",
+        "slim/psr7": "^1.5",
+        "soyuka/stubs-mongodb": "^1.0",
+        "mongodb/mongodb": "^1.10"
     }
 }
