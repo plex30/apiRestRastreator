@@ -15,7 +15,7 @@ class Connect {
        try {
           $this->connect = new MongoDB\Client('mongodb+srv://root:root@cluster0.6f37h.mongodb.net/dbRastreator?retryWrites=true&w=majority');
         
-       } catch (MongoDB\Driver\Exception\ConnectionTimeoutException $e) {
+       } catch (MongoDB\Exception\Exception $e) {
            echo "Cannnot connect to MongoDb";
        }
 
