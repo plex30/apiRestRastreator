@@ -10,15 +10,25 @@ $app = AppFactory::create();
 $app->get('/bancos', function (Request $request, Response $response) {
     $db = new dbHandler();
     $cur = $db->getAllBancos();
-    $response->getBody($cur);
-    return $response;
+   
+    $newResponse = $response->withHeader('Access-Control-Allow-Origin', '*')
+    ->withHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Accept, Origin, Authorization')
+    ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
+    $newResponse->getBody()->write(json_encode($cur), '200');
+    return $newResponse;
+    
 });
 
 $app->get('/seguros', function (Request $request, Response $response) {
     $db = new dbHandler();
     $cur = $db->getAllSeguros();
-    $response->getBody($cur);
-    return $response;
+    
+    $newResponse = $response->withHeader('Access-Control-Allow-Origin', '*')
+    ->withHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Accept, Origin, Authorization')
+    ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
+    $newResponse->getBody()->write(json_encode($cur), '200');
+    return $newResponse;
+    
 });
 
 $app->run();

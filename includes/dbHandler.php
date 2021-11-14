@@ -66,7 +66,7 @@ class dbHandler{
         }    );
 
 
-        return var_dump($json);
+        return $json;
     
     }
 
@@ -112,7 +112,7 @@ class dbHandler{
 
         $json = [$jsonBasic[0], $jsonPlus[0], $jsonFull[0]];
 
-        return var_dump($json);
+        return $json;
         
     }
 
